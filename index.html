@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Principia — Epistemic Cognitive Engine</title>
+  <meta name="description" content="Principia is a multi-agent distillation engine for foundational science. Ideas enter. Axioms emerge." />
+  <style>
+    :root {
+      --bg: #0a0c10;
+      --surface: #111420;
+      --border: #1e2235;
+      --gold: #c9a84c;
+      --gold-dim: #8a6f30;
+      --text: #d4d8e8;
+      --text-dim: #6b7290;
+      --text-bright: #eef0f8;
+      --accent: #4a6fa5;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Georgia', 'Times New Roman', serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 720px;
+      width: 100%;
+    }
+
+    .sigil {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .sigil svg {
+      width: 64px;
+      height: 64px;
+      opacity: 0.85;
+    }
+
+    .wordmark {
+      font-size: 2.8rem;
+      font-weight: normal;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .tagline {
+      text-align: center;
+      font-style: italic;
+      color: var(--text-dim);
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 3rem;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    .description {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--text);
+      margin-bottom: 2rem;
+    }
+
+    .description p + p {
+      margin-top: 1rem;
+    }
+
+    .pipeline {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+    }
+
+    .pipeline-step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      padding: 0.4rem 0.9rem;
+      border-radius: 2px;
+    }
+
+    .pipeline-arrow {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+    }
+
+    .section-label {
+      font-family: 'Courier New', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 1rem;
+    }
+
+    .papers {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .paper {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold-dim);
+      padding: 0.85rem 1.1rem;
+      text-decoration: none;
+      transition: border-left-color 0.2s;
+      display: block;
+    }
+
+    .paper:hover {
+      border-left-color: var(--gold);
+    }
+
+    .paper-title {
+      color: var(--text-bright);
+      font-size: 0.92rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .paper-meta {
+      font-family: 'Courier New', monospace;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+    }
+
+    .notify {
+      margin: 2rem 0;
+    }
+
+    .notify form {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .notify input[type="email"] {
+      flex: 1;
+      min-width: 200px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-bright);
+      padding: 0.65rem 1rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.85rem;
+      outline: none;
+      border-radius: 2px;
+    }
+
+    .notify input[type="email"]:focus {
+      border-color: var(--gold-dim);
+    }
+
+    .notify input[type="email"]::placeholder {
+      color: var(--text-dim);
+    }
+
+    .btn {
+      background: transparent;
+      border: 1px solid var(--gold-dim);
+      color: var(--gold);
+      padding: 0.65rem 1.4rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .btn:hover {
+      background: rgba(201, 168, 76, 0.08);
+      border-color: var(--gold);
+    }
+
+    .footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-family: 'Courier New', monospace;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+    }
+
+    .footer a {
+      color: var(--text-dim);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: var(--gold-dim);
+    }
+
+    .coming-soon-badge {
+      display: inline-block;
+      font-family: 'Courier New', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.75rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="sigil">
+      <!-- Simple geometric sigil - interlocking triangles (distillation symbol) -->
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="32,4 60,52 4,52" stroke="#c9a84c" stroke-width="1.5" fill="none" opacity="0.9"/>
+        <polygon points="32,60 4,12 60,12" stroke="#4a6fa5" stroke-width="1.5" fill="none" opacity="0.6"/>
+        <circle cx="32" cy="32" r="3" fill="#c9a84c" opacity="0.8"/>
+      </svg>
+    </div>
+
+    <h1 class="wordmark">Principia</h1>
+    <p class="tagline">An epistemic engine for foundational science</p>
+
+    <div class="coming-soon-badge">In Development &mdash; 2026</div>
+
+    <div class="description">
+      <p>
+        Principia is a multi-agent cognitive system that subjects ideas, theories, and papers
+        to structured adversarial distillation &mdash; reducing raw thought to axioms, then testing
+        those axioms against evidence, rebuttal, and logic until only defensible claims survive.
+      </p>
+      <p>
+        Ideas enter. Axioms emerge.
+      </p>
+    </div>
+
+    <div class="pipeline">
+      <span class="pipeline-step">Distill</span>
+      <span class="pipeline-arrow">&rarr;</span>
+      <span class="pipeline-step">Test</span>
+      <span class="pipeline-arrow">&rarr;</span>
+      <span class="pipeline-step">Falsify</span>
+      <span class="pipeline-arrow">&rarr;</span>
+      <span class="pipeline-step">Publish</span>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="section-label">Proof of Work &mdash; Published via Principia Process</div>
+    <div class="papers">
+      <a class="paper" href="https://doi.org/10.5281/zenodo.18736625" target="_blank" rel="noopener">
+        <div class="paper-title">Dark Matter as Energy-Depleted Space: Rotation Curves from Substrate Mode Scarcity</div>
+        <div class="paper-meta">Jensen, T. &nbsp;&middot;&nbsp; Zenodo &nbsp;&middot;&nbsp; DOI: 10.5281/zenodo.18736625 &nbsp;&middot;&nbsp; 2026</div>
+      </a>
+      <a class="paper" href="https://doi.org/10.5281/zenodo.18736403" target="_blank" rel="noopener">
+        <div class="paper-title">Gravitational Lensing as Anisotropic Refraction in a Hyper-Elastic Continuum</div>
+        <div class="paper-meta">Jensen, T. &nbsp;&middot;&nbsp; Zenodo &nbsp;&middot;&nbsp; DOI: 10.5281/zenodo.18736403 &nbsp;&middot;&nbsp; 2026</div>
+      </a>
+      <a class="paper" href="https://doi.org/10.5281/zenodo.18736487" target="_blank" rel="noopener">
+        <div class="paper-title">Dynamic Enforcement of Lorentz Invariance via Substrate Stress Feedback</div>
+        <div class="paper-meta">Jensen, T. &nbsp;&middot;&nbsp; Zenodo &nbsp;&middot;&nbsp; DOI: 10.5281/zenodo.18736487 &nbsp;&middot;&nbsp; 2026</div>
+      </a>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="notify">
+      <div class="section-label">Notify me at launch</div>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="email" name="email" placeholder="your@email.com" required />
+        <button type="submit" class="btn">Notify Me</button>
+      </form>
+    </div>
+
+    <div class="footer">
+      <p>Founded by Troy Jensen &nbsp;&middot;&nbsp; <a href="mailto:troy@principia.academy">troy@principia.academy</a></p>
+      <p style="margin-top:0.5rem; opacity:0.5">&copy; 2026 Principia &nbsp;&middot;&nbsp; principia.academy</p>
+    </div>
+
+  </div>
+</body>
+</html>
