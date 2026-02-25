@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Principia — Epistemic Cognitive Engine</title>
-  <meta name="description" content="Principia is a multi-agent distillation engine for foundational science. Ideas enter. Axioms emerge." />
+  <title>Principia &mdash; Adversarial Distillation for Serious Ideas</title>
+  <meta name="description" content="Principia is a structured adversarial distillation engine for theories, research, and complex ideas. Your framework enters. What survives is defensible." />
   <style>
     :root {
       --bg: #0a0c10;
       --surface: #111420;
+      --surface-raised: #161925;
       --border: #1e2235;
       --gold: #c9a84c;
       --gold-dim: #8a6f30;
@@ -16,6 +17,8 @@
       --text-dim: #6b7290;
       --text-bright: #eef0f8;
       --accent: #4a6fa5;
+      --green: #4a8c6a;
+      --prev: #3a3a2a;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,26 +31,28 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 2rem;
+      padding: 3rem 2rem 4rem;
     }
 
-    .container {
-      max-width: 720px;
-      width: 100%;
-    }
+    .container { max-width: 740px; width: 100%; }
 
-    .sigil {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-
-    .sigil svg {
-      width: 64px;
-      height: 64px;
-      opacity: 0.85;
-    }
-
+    /* ── Header ── */
+    .sigil { text-align: center; margin-bottom: 2rem; }
+    .sigil svg { width: 64px; height: 64px; opacity: 0.85; }
+    /* ── DPS Framework Centerpiece ── */
+    .dps-frame { margin: 1.5rem 0; }
+    .axioms-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.75rem; }
+    .axioms-block, .convergences-block { background: var(--card-bg); border: 1px solid var(--border); border-radius: 4px; padding: 1.1rem 1.25rem; margin-bottom: 0.5rem; }
+    .axiom { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.35rem 0; font-size: 0.88rem; line-height: 1.45; color: var(--text-main); border-bottom: 1px solid var(--border); }
+    .axiom:last-child { border-bottom: none; }
+    .axiom-num { color: var(--gold-dim); font-variant: small-caps; font-size: 0.8rem; min-width: 1.2rem; padding-top: 0.05rem; }
+    .dps-arrow { text-align: center; color: var(--text-dim); font-size: 1.2rem; margin: 0.25rem 0; }
+    .convergence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem 1rem; }
+    .conv { font-size: 0.83rem; color: var(--text-main); padding: 0.2rem 0; }
+    .conv::before { content: "✓ "; color: var(--gold-dim); }
+    .dps-note { text-align: center; font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.06em; margin: 0.85rem 0 0.65rem; }
+    .dps-read-btn { display: block; text-align: center; padding: 0.55rem 1rem; border: 1px solid var(--gold-dim); color: var(--gold-dim); border-radius: 3px; font-size: 0.82rem; letter-spacing: 0.05em; text-decoration: none; transition: background 0.2s; }
+    .dps-read-btn:hover { background: rgba(201,168,76,0.08); }
     .wordmark {
       font-size: 2.8rem;
       font-weight: normal;
@@ -57,58 +62,45 @@
       text-transform: uppercase;
       margin-bottom: 0.4rem;
     }
-
     .tagline {
       text-align: center;
       font-style: italic;
       color: var(--text-dim);
       font-size: 1rem;
       letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+    }
+    .sub-tagline {
+      text-align: center;
+      color: var(--text-dim);
+      font-family: 'Courier New', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       margin-bottom: 3rem;
     }
-
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 2rem 0;
-    }
-
-    .description {
-      font-size: 1.05rem;
-      line-height: 1.85;
-      color: var(--text);
-      margin-bottom: 2rem;
-    }
-
-    .description p + p {
-      margin-top: 1rem;
-    }
-
-    .pipeline {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin: 2rem 0;
+    .live-badge {
+      display: inline-block;
       font-family: 'Courier New', monospace;
-      font-size: 0.82rem;
-      letter-spacing: 0.05em;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--green);
+      border: 1px solid var(--green);
+      padding: 0.25rem 0.75rem;
+      margin-bottom: 0.75rem;
+      opacity: 0.85;
     }
+    .live-wrap { text-align: center; }
 
-    .pipeline-step {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--gold);
-      padding: 0.4rem 0.9rem;
-      border-radius: 2px;
-    }
+    /* ── Divider ── */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 2.25rem 0; }
 
-    .pipeline-arrow {
-      color: var(--text-dim);
-      font-size: 0.9rem;
-    }
+    /* ── Body copy ── */
+    .description { font-size: 1.05rem; line-height: 1.9; color: var(--text); margin-bottom: 2rem; }
+    .description p + p { margin-top: 1rem; }
 
+    /* ── Section label ── */
     .section-label {
       font-family: 'Courier New', monospace;
       font-size: 0.7rem;
@@ -118,13 +110,44 @@
       margin-bottom: 1rem;
     }
 
-    .papers {
+    /* ── Process steps ── */
+    .process-steps {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
-      margin-bottom: 2rem;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .process-step {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 0.7rem 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold-dim);
+    }
+    .process-num {
+      font-family: 'Courier New', monospace;
+      font-size: 0.7rem;
+      color: var(--gold-dim);
+      min-width: 1.5rem;
+      letter-spacing: 0.1em;
+    }
+    .process-text {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .process-note {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      font-style: italic;
+      margin-top: 0.75rem;
+      line-height: 1.7;
     }
 
+    /* ── Papers ── */
+    .papers { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
     .paper {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -134,55 +157,128 @@
       transition: border-left-color 0.2s;
       display: block;
     }
-
-    .paper:hover {
-      border-left-color: var(--gold);
+    .paper:hover { border-left-color: var(--gold); }
+    .paper.current { border-left-color: var(--gold); }
+    .paper.overview { border-left-color: var(--accent); }
+    .paper.overview:hover { border-left-color: #6a9fd8; }
+    .paper.prev {
+      border-left-color: var(--prev);
+      opacity: 0.65;
     }
-
-    .paper-title {
-      color: var(--text-bright);
-      font-size: 0.92rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .paper-meta {
+    .paper.prev:hover { opacity: 0.85; border-left-color: var(--gold-dim); }
+    .paper-label {
       font-family: 'Courier New', monospace;
-      font-size: 0.72rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+    .paper-label.current-label { color: var(--gold); }
+    .paper-label.prev-label { color: var(--text-dim); }
+    .paper-title { color: var(--text-bright); font-size: 0.92rem; margin-bottom: 0.25rem; }
+    .paper-meta { font-family: 'Courier New', monospace; font-size: 0.72rem; color: var(--text-dim); }
+
+    .version-group { margin-bottom: 0.4rem; }
+    .version-group-label {
+      font-family: 'Courier New', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       color: var(--text-dim);
+      margin: 1.25rem 0 0.5rem;
+      opacity: 0.6;
     }
 
-    .notify {
-      margin: 2rem 0;
-    }
-
-    .notify form {
+    /* ── Pipeline ── */
+    .pipeline {
       display: flex;
-      gap: 0.5rem;
+      justify-content: center;
+      align-items: center;
+      gap: 0.4rem;
       flex-wrap: wrap;
+      margin: 1.75rem 0;
+      font-family: 'Courier New', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
     }
-
-    .notify input[type="email"] {
-      flex: 1;
-      min-width: 200px;
+    .pipeline-step {
       background: var(--surface);
       border: 1px solid var(--border);
-      color: var(--text-bright);
-      padding: 0.65rem 1rem;
+      color: var(--gold);
+      padding: 0.35rem 0.85rem;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+    .pipeline-step small {
+      display: block;
+      color: var(--text-dim);
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      margin-top: 0.15rem;
+    }
+    .pipeline-arrow { color: var(--text-dim); font-size: 0.85rem; }
+
+    /* ── Who it's for ── */
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .who-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.1rem 1.2rem;
+    }
+    .who-card-title {
+      color: var(--gold);
       font-family: 'Courier New', monospace;
-      font-size: 0.85rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .who-card p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.7; }
+
+    /* ── Engage ── */
+    .engage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 520px) { .engage-grid { grid-template-columns: 1fr; } }
+    .engage-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.4rem 1.3rem;
+    }
+    .engage-card-title {
+      font-family: 'Courier New', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 0.6rem;
+    }
+    .engage-card p { font-size: 0.87rem; color: var(--text-dim); line-height: 1.7; margin-bottom: 1rem; }
+    .engage-card form { display: flex; flex-direction: column; gap: 0.5rem; }
+    .engage-card input[type="email"] {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-bright);
+      padding: 0.6rem 0.9rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
       outline: none;
       border-radius: 2px;
+      width: 100%;
     }
-
-    .notify input[type="email"]:focus {
-      border-color: var(--gold-dim);
-    }
-
-    .notify input[type="email"]::placeholder {
-      color: var(--text-dim);
-    }
-
+    .engage-card input[type="email"]:focus { border-color: var(--gold-dim); }
+    .engage-card input[type="email"]::placeholder { color: var(--text-dim); }
     .btn {
+      display: inline-block;
       background: transparent;
       border: 1px solid var(--gold-dim);
       color: var(--gold);
@@ -194,13 +290,14 @@
       cursor: pointer;
       border-radius: 2px;
       transition: background 0.2s, border-color 0.2s;
+      text-decoration: none;
+      text-align: center;
     }
+    .btn:hover { background: rgba(201, 168, 76, 0.08); border-color: var(--gold); }
+    .btn-primary { border-color: var(--gold); background: rgba(201, 168, 76, 0.06); }
+    .btn-full { width: 100%; }
 
-    .btn:hover {
-      background: rgba(201, 168, 76, 0.08);
-      border-color: var(--gold);
-    }
-
+    /* ── Footer ── */
     .footer {
       margin-top: 3rem;
       text-align: center;
@@ -209,99 +306,232 @@
       color: var(--text-dim);
       letter-spacing: 0.08em;
     }
-
-    .footer a {
-      color: var(--text-dim);
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      color: var(--gold-dim);
-    }
-
-    .coming-soon-badge {
-      display: inline-block;
-      font-family: 'Courier New', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      border: 1px solid var(--border);
-      padding: 0.25rem 0.75rem;
-      margin-bottom: 2rem;
-      text-align: center;
-      width: 100%;
-    }
+    .footer a { color: var(--text-dim); text-decoration: none; }
+    .footer a:hover { color: var(--gold-dim); }
   </style>
 </head>
 <body>
   <div class="container">
 
+    <!-- Header -->
     <div class="sigil">
-      <!-- Simple geometric sigil - interlocking triangles (distillation symbol) -->
       <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <polygon points="32,4 60,52 4,52" stroke="#c9a84c" stroke-width="1.5" fill="none" opacity="0.9"/>
-        <polygon points="32,60 4,12 60,12" stroke="#4a6fa5" stroke-width="1.5" fill="none" opacity="0.6"/>
-        <circle cx="32" cy="32" r="3" fill="#c9a84c" opacity="0.8"/>
+        <!-- Triple-point phase boundaries: three phase regions meeting at center -->
+        <!-- Line 1: up (12 o'clock) -->
+        <line x1="32" y1="32" x2="32" y2="5" stroke="#c9a84c" stroke-width="1.5" opacity="0.9"/>
+        <!-- Line 2: lower-left (8 o'clock) -->
+        <line x1="32" y1="32" x2="8" y2="54" stroke="#4a6fa5" stroke-width="1.5" opacity="0.7"/>
+        <!-- Line 3: lower-right (4 o'clock) -->
+        <line x1="32" y1="32" x2="56" y2="54" stroke="#c9a84c" stroke-width="1.0" opacity="0.5"/>
+        <!-- Phase arc labels (subtle arcs suggesting three regions) -->
+        <path d="M 32 10 A 22 22 0 0 1 52 48" stroke="#c9a84c" stroke-width="0.5" fill="none" opacity="0.25"/>
+        <path d="M 12 48 A 22 22 0 0 1 32 10" stroke="#4a6fa5" stroke-width="0.5" fill="none" opacity="0.25"/>
+        <path d="M 52 48 A 22 22 0 0 1 12 48" stroke="#7a9fc5" stroke-width="0.5" fill="none" opacity="0.25"/>
+        <!-- Triple point -->
+        <circle cx="32" cy="32" r="2.5" fill="#c9a84c" opacity="0.9"/>
       </svg>
     </div>
 
     <h1 class="wordmark">Principia</h1>
-    <p class="tagline">An epistemic engine for foundational science</p>
+    <p class="tagline">Adversarial distillation for ideas that matter</p>
+    <p class="sub-tagline">Axioms in &mdash; defensible claims out</p>
 
-    <div class="coming-soon-badge">In Development &mdash; 2026</div>
+    <div class="live-wrap">
+      <span class="live-badge">&#9679; Now Taking Clients</span>
+    </div>
 
+    <hr class="divider" />
+
+    <!-- Description -->
     <div class="description">
       <p>
-        Principia is a multi-agent cognitive system that subjects ideas, theories, and papers
-        to structured adversarial distillation &mdash; reducing raw thought to axioms, then testing
-        those axioms against evidence, rebuttal, and logic until only defensible claims survive.
+        Principia is a structured adversarial distillation process that subjects theories,
+        research frameworks, and complex ideas to rigorous, multi-round intellectual pressure.
+        What survives is defensible. What doesn&rsquo;t is identified before it costs you.
       </p>
       <p>
-        Ideas enter. Axioms emerge.
+        This is not a chatbot or a writing tool. It is an epistemic process, built by a
+        physicist to pressure-test original research &mdash; and made available to others
+        working on ideas serious enough to deserve it.
       </p>
     </div>
 
-    <div class="pipeline">
-      <span class="pipeline-step">Distill</span>
-      <span class="pipeline-arrow">&rarr;</span>
-      <span class="pipeline-step">Test</span>
-      <span class="pipeline-arrow">&rarr;</span>
-      <span class="pipeline-step">Falsify</span>
-      <span class="pipeline-arrow">&rarr;</span>
-      <span class="pipeline-step">Publish</span>
+    <!-- DPS Framework Centerpiece -->
+    <div class="section-label">The Framework &mdash; Dynamic Principles of the Substrata</div>
+    <div class="dps-frame">
+      <div class="axioms-block">
+        <div class="axioms-label">Three Axioms</div>
+        <div class="axiom"><span class="axiom-num">I</span> The vacuum is a real, continuous, hyper-elastic solid medium</div>
+        <div class="axiom"><span class="axiom-num">II</span> Matter is metastable topological folds locked at phase boundaries</div>
+        <div class="axiom"><span class="axiom-num">III</span> The universe sits near a thermodynamic triple point: vacuum, dark, baryonic</div>
+      </div>
+      <div class="dps-arrow">&#8675;</div>
+      <div class="convergences-block">
+        <div class="axioms-label">Six Independent Convergences</div>
+        <div class="convergence-grid">
+          <div class="conv">Photon propagation &amp; <em>E&#8239;&prop;&#8239;f</em></div>
+          <div class="conv">Gravitational lensing</div>
+          <div class="conv">Lorentz invariance</div>
+          <div class="conv">Shapiro delay</div>
+          <div class="conv">Galactic rotation curves</div>
+          <div class="conv">Entropic gravity</div>
+        </div>
+      </div>
+      <div class="dps-note">Three axioms. No free parameters. Six known results.</div>
+      <a class="dps-read-btn" href="/substrate_mechanics_overview.pdf" target="_blank" rel="noopener">Read the Framework Overview &rarr;</a>
     </div>
 
     <hr class="divider" />
 
-    <div class="section-label">Proof of Work &mdash; Published via Principia Process</div>
+    <!-- Proof of Work: Papers FRONT AND CENTER -->
+    <div class="section-label">Research &mdash; Dynamic Principles of the Substrata</div>
+
     <div class="papers">
-      <a class="paper" href="https://doi.org/10.5281/zenodo.18736625" target="_blank" rel="noopener">
+
+      <!-- Framework Overview: current v2 -->
+      <!-- TODO: update href to /dps_overview_v2.pdf when published -->
+      <a class="paper overview current" href="/substrate_mechanics_overview.pdf" target="_blank" rel="noopener">
+        <div class="paper-label current-label">&#9632; Current &mdash; Framework Overview</div>
+        <div class="paper-title">Principia Substrata: A Framework Overview</div>
+        <div class="paper-meta">Jensen, T. &nbsp;&middot;&nbsp; Dynamic Principles of the Substrata &nbsp;&middot;&nbsp; 2026 &nbsp;&middot;&nbsp; v2 &nbsp;&middot;&nbsp; In review</div>
+      </a>
+
+      <!-- Dark Matter: current -->
+      <a class="paper current" href="https://doi.org/10.5281/zenodo.18736625" target="_blank" rel="noopener">
+        <div class="paper-label current-label">&#9632; Current &mdash; v018</div>
         <div class="paper-title">Dark Matter as Energy-Depleted Space: Rotation Curves from Substrate Mode Scarcity</div>
-        <div class="paper-meta">Jensen, T. &nbsp;&middot;&nbsp; Zenodo &nbsp;&middot;&nbsp; DOI: 10.5281/zenodo.18736625 &nbsp;&middot;&nbsp; 2026</div>
+        <div class="paper-meta">Jensen, T. &nbsp;&middot;&nbsp; Zenodo &nbsp;&middot;&nbsp; DOI:&nbsp;10.5281/zenodo.18736625 &nbsp;&middot;&nbsp; 2026</div>
       </a>
-      <a class="paper" href="https://doi.org/10.5281/zenodo.18736403" target="_blank" rel="noopener">
+
+      <!-- Lensing: current -->
+      <a class="paper current" href="https://doi.org/10.5281/zenodo.18736403" target="_blank" rel="noopener">
+        <div class="paper-label current-label">&#9632; Current &mdash; v3</div>
         <div class="paper-title">Gravitational Lensing as Anisotropic Refraction in a Hyper-Elastic Continuum</div>
-        <div class="paper-meta">Jensen, T. &nbsp;&middot;&nbsp; Zenodo &nbsp;&middot;&nbsp; DOI: 10.5281/zenodo.18736403 &nbsp;&middot;&nbsp; 2026</div>
+        <div class="paper-meta">Jensen, T. &nbsp;&middot;&nbsp; Zenodo &nbsp;&middot;&nbsp; DOI:&nbsp;10.5281/zenodo.18736403 &nbsp;&middot;&nbsp; 2026</div>
       </a>
-      <a class="paper" href="https://doi.org/10.5281/zenodo.18736487" target="_blank" rel="noopener">
+
+      <!-- Lorentz: current -->
+      <a class="paper current" href="https://doi.org/10.5281/zenodo.18736487" target="_blank" rel="noopener">
+        <div class="paper-label current-label">&#9632; Current &mdash; v3</div>
         <div class="paper-title">Dynamic Enforcement of Lorentz Invariance via Substrate Stress Feedback</div>
-        <div class="paper-meta">Jensen, T. &nbsp;&middot;&nbsp; Zenodo &nbsp;&middot;&nbsp; DOI: 10.5281/zenodo.18736487 &nbsp;&middot;&nbsp; 2026</div>
+        <div class="paper-meta">Jensen, T. &nbsp;&middot;&nbsp; Zenodo &nbsp;&middot;&nbsp; DOI:&nbsp;10.5281/zenodo.18736487 &nbsp;&middot;&nbsp; 2026</div>
       </a>
+
+      <!-- Shapiro: current, DOI forthcoming -->
+      <a class="paper" href="#" style="cursor:default;">
+        <div class="paper-label">In Press &mdash; v2</div>
+        <div class="paper-title">Shapiro Delay as Constitutive Retardation in a Hyper-Elastic Continuum</div>
+        <div class="paper-meta">Jensen, T. &nbsp;&middot;&nbsp; Zenodo &nbsp;&middot;&nbsp; DOI forthcoming &nbsp;&middot;&nbsp; 2026</div>
+      </a>
+
+      <!-- Previous versions header -->
+      <div class="version-group-label">&#9650; Previous versions &mdash; available on Zenodo</div>
+
+      <a class="paper prev" href="https://zenodo.org/search?q=Jensen+substrate+mechanics" target="_blank" rel="noopener">
+        <div class="paper-label prev-label">Archive</div>
+        <div class="paper-title">Prior versions of all papers</div>
+        <div class="paper-meta">Zenodo &nbsp;&middot;&nbsp; Full version history &nbsp;&middot;&nbsp; Search: Jensen substrate mechanics</div>
+      </a>
+
     </div>
 
     <hr class="divider" />
 
-    <div class="notify">
-      <div class="section-label">Notify me at launch</div>
-      <form action="https://formspree.io/f/mojnpovk" method="POST">
-        <input type="email" name="email" placeholder="your@email.com" required />
-        <button type="submit" class="btn">Notify Me</button>
-      </form>
+    <!-- The Process -->
+    <div class="section-label">The Process</div>
+    <div class="process-steps">
+      <div class="process-step">
+        <span class="process-num">01</span>
+        <span class="process-text"><strong>State the axioms.</strong> Identify the minimal ontological claims. Strip everything else.</span>
+      </div>
+      <div class="process-step">
+        <span class="process-num">02</span>
+        <span class="process-text"><strong>Extrapolate without constraint.</strong> Follow every implication of the axioms, regardless of where they lead.</span>
+      </div>
+      <div class="process-step">
+        <span class="process-num">03</span>
+        <span class="process-text"><strong>Find convergences.</strong> Where do independent lines of reasoning arrive at the same result? Those convergences are candidate truths.</span>
+      </div>
+      <div class="process-step">
+        <span class="process-num">04</span>
+        <span class="process-text"><strong>Attack adversarially.</strong> The strongest version of every objection is applied. Steel-man, then destroy.</span>
+      </div>
+      <div class="process-step">
+        <span class="process-num">05</span>
+        <span class="process-text"><strong>Augment and drill.</strong> What survives attack is refined toward equations. What doesn&rsquo;t is discarded or flagged as open.</span>
+      </div>
+    </div>
+    <p class="process-note">
+      The Principia Substrata research program was developed using this process.
+      The papers above are its current output. The pipeline is available for
+      engagement on work serious enough to deserve the same treatment.
+    </p>
+
+    <hr class="divider" />
+
+    <!-- Pipeline visualization -->
+    <div class="section-label">Distillation sequence</div>
+    <div class="pipeline">
+      <div class="pipeline-step">Distill<small>Archivist</small></div>
+      <span class="pipeline-arrow">&rarr;</span>
+      <div class="pipeline-step">Synthesize<small>Synthesis</small></div>
+      <span class="pipeline-arrow">&rarr;</span>
+      <div class="pipeline-step">Strengthen<small>Steel Man</small></div>
+      <span class="pipeline-arrow">&rarr;</span>
+      <div class="pipeline-step">Stress&#8209;Test<small>Entropy</small></div>
+      <span class="pipeline-arrow">&rarr;</span>
+      <div class="pipeline-step">Challenge<small>Advocatus</small></div>
+      <span class="pipeline-arrow">&rarr;</span>
+      <div class="pipeline-step">Validate<small>Validator</small></div>
     </div>
 
+    <hr class="divider" />
+
+    <!-- Who it's for -->
+    <div class="section-label">Who it is for</div>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-card-title">Researchers</div>
+        <p>Pressure-test papers and theories before submission. Find the objections a reviewer will raise before they do.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card-title">Technical Founders</div>
+        <p>Kill your idea before the market does. Surface the fatal flaw in your thesis before you build the wrong thing.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-card-title">Framework Builders</div>
+        <p>Develop complex ideas with rigor. Distinguish what is derivable from what is assumed, and what survives from what is wishful.</p>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Engage -->
+    <div class="section-label">Engage</div>
+    <div class="engage-grid">
+
+      <div class="engage-card">
+        <div class="engage-card-title">Work with us now</div>
+        <p>The pipeline is operational. Manual engagements available now for research, thesis validation, and idea stress-testing.</p>
+        <a class="btn btn-primary btn-full" href="mailto:troy@principia.academy">Get in touch</a>
+      </div>
+
+      <div class="engage-card">
+        <div class="engage-card-title">Platform access</div>
+        <p>Self-serve platform in development. Join the list to be notified when member access opens.</p>
+        <form action="https://formspree.io/f/mojnpovk" method="POST">
+          <input type="email" name="email" placeholder="your@email.com" required />
+          <button type="submit" class="btn btn-full">Join the list</button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
     <div class="footer">
-      <p>Founded by Troy Jensen &nbsp;&middot;&nbsp; <a href="mailto:troy@principia.academy">troy@principia.academy</a></p>
+      <p>Founded by Troy Jensen &nbsp;&middot;&nbsp;
+        <a href="mailto:troy@principia.academy">troy@principia.academy</a>
+      </p>
       <p style="margin-top:0.5rem; opacity:0.5">&copy; 2026 Principia &nbsp;&middot;&nbsp; principia.academy</p>
     </div>
 
