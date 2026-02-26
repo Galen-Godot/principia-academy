@@ -308,6 +308,62 @@
     }
     .footer a { color: var(--text-dim); text-decoration: none; }
     .footer a:hover { color: var(--gold-dim); }
+
+    /* ── Services ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold-dim);
+      padding: 1.25rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .service-tier {
+      font-family: 'Courier New', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+    }
+    .service-name {
+      color: var(--text-bright);
+      font-size: 0.95rem;
+      font-weight: normal;
+    }
+    .service-price {
+      color: var(--gold);
+      font-family: 'Courier New', monospace;
+      font-size: 1.2rem;
+      letter-spacing: 0.06em;
+      margin: 0.25rem 0;
+    }
+    .service-desc {
+      font-size: 0.84rem;
+      color: var(--text-dim);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .service-meta {
+      font-family: 'Courier New', monospace;
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      opacity: 0.7;
+    }
+    .services-note {
+      text-align: center;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      margin-bottom: 1.25rem;
+    }
+    .services-cta { text-align: center; margin-top: 0.5rem; }
   </style>
 </head>
 <body>
@@ -335,6 +391,7 @@
     <h1 class="wordmark">Principia</h1>
     <p class="tagline">Adversarial distillation for ideas that matter</p>
     <p class="sub-tagline">Axioms in &mdash; defensible claims out</p>
+    <p class="sub-tagline" style="margin-top:-1.75rem; margin-bottom:2rem; font-size:0.72rem; color:var(--gold-dim); opacity:0.9;">Now taking manual engagements &mdash; see packages below</p>
 
     <div class="live-wrap">
       <span class="live-badge">&#9679; Now Taking Clients</span>
@@ -434,6 +491,9 @@
       </a>
 
     </div>
+    <div style="margin-top:0.75rem; margin-bottom:0.25rem; padding:0.65rem 1rem; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--accent);">
+      <span style="font-family:'Courier New',monospace; font-size:0.72rem; letter-spacing:0.1em; color:var(--text-dim);">&#9632; SPARC VALIDATION &nbsp;&middot;&nbsp;</span><span style="font-family:'Courier New',monospace; font-size:0.78rem; color:var(--text); letter-spacing:0.04em;">Galaxy rotation fit &nbsp;&middot;&nbsp; 175 galaxies &nbsp;&middot;&nbsp; 3,391 data points &nbsp;&middot;&nbsp; 0.332 dex RMS &nbsp;&middot;&nbsp; single coupling constant</span>
+    </div>
 
     <hr class="divider" />
 
@@ -487,6 +547,42 @@
 
     <hr class="divider" />
 
+    <!-- Services -->
+    <div class="section-label">Services &mdash; Engagement Packages</div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-tier">Basic</div>
+        <div class="service-name">Single Framework Distillation</div>
+        <div class="service-price">$350</div>
+        <div class="service-desc">Full adversarial distillation of a single framework or paper. Complete written report covering axiom extraction, convergences, objections, and open questions.</div>
+        <div class="service-meta">Turnaround: 3&ndash;5 days</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-tier">Standard</div>
+        <div class="service-name">Multi-Paper Synthesis</div>
+        <div class="service-price">$650</div>
+        <div class="service-desc">Extended distillation across multiple papers or a complex framework. Full written report plus a debrief call to walk through findings and answer follow-up questions.</div>
+        <div class="service-meta">Turnaround: 5&ndash;7 days</div>
+      </div>
+
+      <div class="service-card" style="border-top-color: var(--gold);">
+        <div class="service-tier" style="color:var(--gold);">Deep Engagement</div>
+        <div class="service-name">Complex Framework, Iterative</div>
+        <div class="service-price">$1,200</div>
+        <div class="service-desc">Iterative multi-round distillation for complex or evolving frameworks. Includes forward implication mapping, falsifiability analysis, and strategic recommendations.</div>
+        <div class="service-meta">Turnaround: 7&ndash;14 days</div>
+      </div>
+
+    </div>
+    <p class="services-note">Custom engagements available. Message first.</p>
+    <div class="services-cta">
+      <a class="btn btn-primary" href="#" id="upwork-link">View on Upwork &rarr;</a>
+    </div>
+
+    <hr class="divider" />
+
     <!-- Who it's for -->
     <div class="section-label">Who it is for</div>
     <div class="who-grid">
@@ -511,9 +607,10 @@
     <div class="engage-grid">
 
       <div class="engage-card">
-        <div class="engage-card-title">Work with us now</div>
+        <div class="engage-card-title">Hire via Upwork</div>
         <p>The pipeline is operational. Manual engagements available now for research, thesis validation, and idea stress-testing.</p>
-        <a class="btn btn-primary btn-full" href="mailto:troy@principia.academy">Get in touch</a>
+        <a class="btn btn-primary btn-full" href="#" id="upwork-cta">Hire me on Upwork</a>
+        <p style="text-align:center; margin-top:0.65rem; font-size:0.78rem;"><a href="mailto:troy@principia.academy" style="color:var(--text-dim); text-decoration:none; font-family:'Courier New',monospace; letter-spacing:0.06em;">or email troy@principia.academy</a></p>
       </div>
 
       <div class="engage-card">
@@ -532,6 +629,7 @@
       <p>Founded by Troy Jensen &nbsp;&middot;&nbsp;
         <a href="mailto:troy@principia.academy">troy@principia.academy</a>
       </p>
+      <p style="margin-top:0.4rem; opacity:0.7;">Manual engagements via <a href="#" id="upwork-footer">Upwork</a></p>
       <p style="margin-top:0.5rem; opacity:0.5">&copy; 2026 Principia &nbsp;&middot;&nbsp; principia.academy</p>
     </div>
 
