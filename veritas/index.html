@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veritas — Principia</title>
+  <meta name="description" content="The Principia engine applied to investigative journalism and public claims." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+
+  <header class="site-header">
+  <a class="back-link" href="/">&larr; &nbsp; Principia</a>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <span style="font-size:0.5rem">&#9670;</span>
+    <div class="ornament-line right"></div>
+  </div>
+  <nav class="page-nav">
+    <a href="/substrati/">Substrati</a>
+    <span class="sep">&#9670;</span>
+    <a href="/machina/">Machina</a>
+    <span class="sep">&#9670;</span>
+    <a href="/academia/">Academia</a>
+    <span class="sep">&#9670;</span>
+    <a href="/veritas/" class="active">Veritas</a>
+    <span class="sep">&#9670;</span>
+    <a href="/forum/">Forum</a>
+  </nav>
+</header>
+
+
+
+
+<main>
+  <h1 class="page-title">Veritas</h1>
+  <p class="page-subtitle">The Principia engine applied to investigative journalism and public claims</p>
+
+  <div class="section">
+    <p class="section-label">The Proposition</p>
+    <div class="section-body">
+      <p>The same adversarial logic that stress-tests a physics theory can be applied to a news story, a government report, or a corporate disclosure. Claims can be decomposed. Evidence gaps can be named. Verification can be opened to bounty.</p>
+      <p>Principia Veritas extends the engine beyond science into the domain of public epistemic integrity &mdash; where the cost of unexamined claims is not a failed publication but a failed democracy.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-label">The Architecture</p>
+    <div class="section-body">
+      <p>A submitted investigation is parsed into its constituent claims. Each claim is classified: demonstrated, asserted, or unverified. The engine identifies the highest-value gaps &mdash; the unverified claims on which the story&rsquo;s most consequential conclusions depend &mdash; and posts them as open verification bounties.</p>
+      <p>Journalists, researchers, and institutions who supply the required documentation close the bounty and are credited in the public record.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-label">Status</p>
+    <div class="section-body">
+      <p>Principia Veritas is in the design phase. The underlying engine is proven. Platform architecture, editorial governance, and funding structure are under active development.</p>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <p class="cta-latin">In &nbsp;Progressv</p>
+    <p class="cta-text">We are seeking institutional partners, journalists, and researchers for the founding cohort.</p>
+    <a class="cta-link" href="mailto:contact@principia.academy">Express Interest &rarr;</a>
+  </div>
+
+</main>
+
+
+<footer>
+  <p class="footer-quote">&ldquo;If I have seen further, it is by standing on the shoulders of giants.&rdquo;</p>
+  <div class="footer-rule"></div>
+  <p class="footer-domain">Principia &nbsp;&#183;&nbsp; principia.academy</p>
+  <p class="footer-copy">&copy; MMXXVI &nbsp;Principia Academy &nbsp;&#183;&nbsp; Omnia Jure Reservantur</p>
+</footer>
+
+
+
+  <!-- Chatbot Placeholder — Phase 2 will bridge the LLM backend -->
+<div class="chatbot-container" data-api-endpoint="" data-pillar="veritas">
+
+  <button class="chatbot-toggle" id="chatbot-toggle" aria-label="Open chat" title="Interrogate the Engine">&#9670;</button>
+
+  <div class="chatbot-panel" id="chatbot-panel">
+    <div class="chatbot-header">
+      <span class="chatbot-title">Veritas Engine</span>
+      <button class="chatbot-close" id="chatbot-close" aria-label="Close chat">&times;</button>
+    </div>
+
+    <div class="chatbot-messages" id="chatbot-messages">
+      <div class="chatbot-message agent">
+        The Veritas engine is listening. Submit a claim or investigation for adversarial analysis.
+      </div>
+    </div>
+
+    <div class="chatbot-input-area">
+      <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Enter your query&hellip;" />
+      <button class="chatbot-send" id="chatbot-send">Submit</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="/chat.js"></script>
+
+
+
+</body>
+</html>

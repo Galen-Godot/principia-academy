@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principia Renaissance - Kinetic Substrate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --parchment: #F4EFE4;
+            --ink: #2C1A0E;
+            --gold: #B8922A;
+            --sepia-dark: #5E4B3C;
+            --vignette: radial-gradient(circle, rgba(0,0,0,0) 50%, rgba(44,26,14,0.15) 100%);
+        }
+
+        body {
+            background-color: var(--parchment);
+            color: var(--ink);
+            font-family: 'Cormorant Garamond', serif;
+            margin: 0;
+            overflow: hidden;
+            background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+        }
+
+        .vignette-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--vignette);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .codex-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            z-index: 5;
+        }
+
+        header {
+            text-align: center;
+            padding-top: 4rem; /* Moved Up */
+            z-index: 6;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.8rem;
+            letter-spacing: 0.4rem;
+            margin: 0;
+            color: var(--sepia-dark);
+        }
+
+        .subtitle {
+            font-style: italic;
+            font-size: 1.6rem;
+            opacity: 0.8;
+            margin-top: -5px;
+        }
+
+        /* Kinetic Orbital Engine */
+        .orbital-engine {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            transform: translate(-50%, -50%);
+        }
+
+        .substrate-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.15;
+            animation: breathe 10s infinite ease-in-out;
+        }
+
+        .ring-1 { width: 100px; height: 100px; }
+        .ring-2 { width: 220px; height: 220px; }
+        .ring-3 { width: 340px; height: 340px; }
+
+        .particle-fold {
+            position: absolute;
+            background: var(--gold);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            box-shadow: 0 0 12px var(--gold);
+        }
+
+        /* Planet 1: The Primary */
+        .p1 { width: 10px; height: 10px; animation: orbit1 18s infinite linear; }
+        /* Planet 2: Inner Resonance */
+        .p2 { width: 6px; height: 6px; animation: orbit2 12s infinite linear; opacity: 0.8; }
+        /* Planet 3: Outer Horizon */
+        .p3 { width: 8px; height: 8px; animation: orbit3 25s infinite linear; opacity: 0.6; }
+
+        @keyframes breathe {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.1; }
+            50% { transform: translate(-50%, -50%) scale(1.08); opacity: 0.3; }
+        }
+
+        @keyframes orbit1 {
+            from { transform: rotate(0deg) translateX(170px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(170px) rotate(-360deg); }
+        }
+        @keyframes orbit2 {
+            from { transform: rotate(120deg) translateX(110px) rotate(-120deg); }
+            to { transform: rotate(480deg) translateX(110px) rotate(-480deg); }
+        }
+        @keyframes orbit3 {
+            from { transform: rotate(240deg) translateX(200px) rotate(-240deg); }
+            to { transform: rotate(600deg) translateX(200px) rotate(-600deg); }
+        }
+
+        .codex-note {
+            position: absolute;
+            font-size: 0.95rem;
+            color: var(--sepia-dark);
+            max-width: 260px;
+            padding: 15px;
+            border-left: 1px solid var(--gold);
+            background: rgba(244, 239, 228, 0.4);
+            pointer-events: none;
+        }
+
+        /* Diagonal Symmetry */
+        .note-noether {
+            top: 35%;
+            left: 15%;
+        }
+
+        .note-resonantia {
+            bottom: 25%;
+            right: 15%;
+        }
+
+        .footer-ticker {
+            position: fixed;
+            bottom: 12px;
+            width: 100%;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: var(--gold);
+            text-align: center;
+            opacity: 0.5;
+            letter-spacing: 2px;
+        }
+
+        #substrate-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="vignette-overlay"></div>
+    <canvas id="substrate-canvas"></canvas>
+
+    <div class="codex-container">
+        <header>
+            <h1>PRINCIPIA MACHINA</h1>
+            <div class="subtitle">Crystallizing the Substrate</div>
+        </header>
+
+        <div class="orbital-engine">
+            <div class="substrate-ring ring-1"></div>
+            <div class="substrate-ring ring-2"></div>
+            <div class="substrate-ring ring-3"></div>
+            <div class="particle-fold p1"></div>
+            <div class="particle-fold p2"></div>
+            <div class="particle-fold p3"></div>
+        </div>
+
+        <div class="codex-note note-noether">
+            <b>Noether Arbiter</b><br>
+            Symmetry is the dynamical consequence of triple-point equilibrium between vacuum and baryonic phases.
+        </div>
+
+        <div class="codex-note note-resonantia">
+            <b>Resonantia Machina</b><br>
+            The orbital stability of the fold is governed by the constitutive modulus &mu; within the hyper-elastic medium.
+        </div>
+    </div>
+
+    <div class="footer-ticker">
+        SUBSTRATE STATUS: STABLE | VRAM ALLOCATION: ACTIVE | REASONING CONFIDENCE: 0.91 | AD ASTRA
+    </div>
+
+    <script>
+        const canvas = document.getElementById('substrate-canvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        let mouse = { x: -1000, y: -1000 };
+        window.addEventListener('mousemove', e => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+            ctx.strokeStyle = 'rgba(184, 146, 42, 0.07)';
+            const spacing = 60;
+            for (let x = 0; x < width; x += spacing) {
+                for (let y = 0; y < height; y += spacing) {
+                    const dx = x - mouse.x;
+                    const dy = y - mouse.y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    const shift = Math.max(0, 30 - dist/12);
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(x, y);
+                    ctx.lineTo(x + (dx/(dist||1))*shift, y + (dy/(dist||1))*shift);
+                    ctx.stroke();
+                }
+            }
+            requestAnimationFrame(draw);
+        }
+        draw();
+    </script>
+</body>
+</html>
