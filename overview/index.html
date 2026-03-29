@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introductio — Principia</title>
+  <meta name="description" content="What if the vacuum is real? An introduction to the Substrate Field Theory — the compressible medium underlying space, matter, and force." />
+  <meta property="og:title" content="Introductio — Principia" />
+  <meta property="og:description" content="What if the vacuum is real? An introduction to the Substrate Field Theory — the compressible medium underlying space, matter, and force." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="canonical" href="https://principia.academy/overview/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Principia",
+    "url": "https://principia.academy",
+    "description": "Human-in-the-loop AI research for deep technical work.",
+    "sameAs": [
+      "https://github.com/Galen-Godot"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+
+  <header class="site-header">
+  <a class="back-link" href="/">&larr; &nbsp; Principia</a>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <span style="font-size:0.5rem">&#9670;</span>
+    <div class="ornament-line right"></div>
+  </div>
+  <nav class="page-nav">
+    <a href="/partners/">Partners</a>
+    <span class="sep">&#9670;</span>
+    <a href="/substrati/" class="active">Substrati</a>
+    <span class="sep">&#9670;</span>
+    <a href="/machina/">Machina</a>
+    <span class="sep">&#9670;</span>
+    <a href="/academia/">Academia</a>
+    <span class="sep">&#9670;</span>
+    <a href="/veritas/">Veritas</a>
+    <span class="sep">&#9670;</span>
+    <a href="/forum/">Forum</a>
+    <span class="sep">&#9670;</span>
+    <a href="/consul/">Consul</a>
+  </nav>
+</header>
+
+
+
+
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$']], displayMath: [['$$','$$']] },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+
+<style>
+  .overview-hero {
+    text-align: center;
+    padding: 4rem 2rem 2rem;
+    border-bottom: 1px solid rgba(184,146,42,0.2);
+    margin-bottom: 2rem;
+  }
+  .overview-hero .page-title { margin-bottom: 0.4rem; }
+  .overview-hero .page-subtitle { margin-bottom: 1.2rem; }
+  .overview-meta {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--gold, #B8922A);
+    text-transform: uppercase;
+  }
+  .overview-version {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--text-muted, #8a7a6a);
+    margin-top: 0.5rem;
+  }
+  .toc {
+    background: rgba(184,146,42,0.05);
+    border: 1px solid rgba(184,146,42,0.15);
+    border-radius: 2px;
+    padding: 1.5rem 2rem;
+    margin: 0 auto 3rem;
+    max-width: 680px;
+  }
+  .toc-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold, #B8922A);
+    margin-bottom: 0.8rem;
+  }
+  .toc ol {
+    margin: 0;
+    padding-left: 1.4rem;
+    font-family: 'EB Garamond', serif;
+    font-size: 0.95rem;
+    line-height: 2;
+  }
+  .toc ol a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(184,146,42,0.25);
+    transition: color 0.2s;
+  }
+  .toc ol a:hover { color: var(--gold, #B8922A); }
+  .overview-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-family: 'EB Garamond', serif;
+    font-size: 0.95rem;
+  }
+  .overview-table th {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold, #B8922A);
+    border-bottom: 1px solid rgba(184,146,42,0.3);
+    padding: 0.6rem 1rem;
+    text-align: left;
+  }
+  .overview-table td {
+    padding: 0.6rem 1rem;
+    border-bottom: 1px solid rgba(184,146,42,0.1);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .overview-table tr:last-child td { border-bottom: none; }
+  .overview-table .row-category {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--gold, #B8922A);
+    text-transform: uppercase;
+  }
+  .callout {
+    border-left: 2px solid var(--gold, #B8922A);
+    padding: 1rem 1.5rem;
+    margin: 1.5rem 0;
+    background: rgba(184,146,42,0.04);
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  .eq-block {
+    text-align: center;
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    overflow-x: auto;
+  }
+  .status-badge {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    margin-right: 0.3rem;
+  }
+  .badge-derived { background: rgba(184,146,42,0.15); color: #B8922A; }
+  .badge-reproduced { background: rgba(100,140,100,0.15); color: #7aaa7a; }
+  .badge-proposed { background: rgba(120,120,180,0.15); color: #9090cc; }
+  .badge-open { background: rgba(180,100,100,0.15); color: #cc8080; }
+  .section-anchor { scroll-margin-top: 2rem; }
+</style>
+
+<main>
+
+  <div class="overview-hero">
+    <h1 class="page-title">Introductio</h1>
+    <p class="page-subtitle">What If the Vacuum Is Real?</p>
+    <p class="overview-meta">Troy Jensen &nbsp;&#183;&nbsp; principia.academy &nbsp;&#183;&nbsp; MMXXVI</p>
+    <p class="overview-version">v2026-public &mdash; Narrative introduction for new readers. Technical derivations and internal master in the linked papers.</p>
+  </div>
+
+  <div class="toc">
+    <p class="toc-label">Contents</p>
+    <ol>
+      <li><a href="#map">A Map Before the Territory</a></li>
+      <li><a href="#vacuum">The Problem with Empty Space</a></li>
+      <li><a href="#substrate">The Substrate</a></li>
+      <li><a href="#matter">What Matter Actually Is</a></li>
+      <li><a href="#light">What Light Actually Is</a></li>
+      <li><a href="#gravity">Gravity Without Geometry</a></li>
+      <li><a href="#darkmatter">Dark Matter Without Particles</a></li>
+      <li><a href="#hydrogen">Why Atoms Are Stable</a></li>
+      <li><a href="#lorentz">Lorentz Invariance, Derived</a></li>
+      <li><a href="#status">Status of Results</a></li>
+      <li><a href="#implications">What This Changes</a></li>
+      <li><a href="#falsifiability">Open Problems and Falsifiability</a></li>
+      <li><a href="#papers">Published Work</a></li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <div class="section-body">
+      <p>Physics has two extraordinarily successful theories, quantum mechanics and general relativity, and they disagree with each other at a fundamental level. Physicists have known this for a century. The standard response is to treat each theory as a tool: use quantum mechanics for the very small, use general relativity for the very large, and avoid asking what happens when both apply at once.</p>
+      <p>This paper takes a different approach. It asks a question that both theories conspicuously avoid: <em>what is the vacuum made of?</em></p>
+      <p>Not what fields live in it. Not what geometry it has. What is it, physically?</p>
+      <p>The Substrate Field Theory (SFT, or <em>Principia Substrata</em>) proposes a direct answer.</p>
+      <div class="callout">
+        <strong>SFT in brief:</strong> The vacuum is a compressible physical medium. Matter is stable phase structure within that medium. Every force is a constraint on the medium&rsquo;s natural tendency to expand.
+      </div>
+      <p>What follows is an explanation of what this means, why it is physically coherent, and what it has already been able to derive &mdash; along with an honest account of what remains open.</p>
+    </div>
+  </div>
+
+  <div class="section section-anchor" id="map">
+    <p class="section-label">I &mdash; A Map Before the Territory</p>
+    <div class="section-body">
+      <p>Before the details, it helps to know what SFT is replacing and with what.</p>
+      <table class="overview-table">
+        <thead>
+          <tr><th>Standard Physics</th><th>SFT Equivalent</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Spacetime (geometric background)</td><td>Substrate (physical compressible medium)</td></tr>
+          <tr><td>Fundamental particles (point objects)</td><td>Topological folds (phase structures in the medium)</td></tr>
+          <tr><td>Forces (abstract interactions)</td><td>Constrained expansion (pressure asymmetries)</td></tr>
+          <tr><td>Speed of light (universal constant)</td><td>Existence condition for sub-stable folds</td></tr>
+          <tr><td>Dark matter (unknown particle)</td><td>Thick vacuum (elevated compression)</td></tr>
+          <tr><td>Quantization (axiomatic rule)</td><td>Phase coherence (structural existence condition)</td></tr>
+        </tbody>
+      </table>
+      <p>None of these substitutions are asserted without derivation. Each is worked out in the papers listed at the end. The table is a map, not a proof.</p>
+      <p>It is also worth stating clearly what SFT is and is not at this stage. It is a theoretical framework with a precise mathematical foundation, a defined ontology, and a growing body of derived results. It is not a finished theory. Several important quantities &mdash; including Planck&rsquo;s constant &mdash; are reproduced but not yet derived from first principles. The open problems are identified and the solution paths are known; the work is ongoing.</p>
+    </div>
+  </div>
+
+  <div class="section section-anchor" id="vacuum">
+    <p class="section-label">II &mdash; The Problem with Empty Space</p>
+    <div class="section-body">
+      <p>When physicists say the vacuum is empty, they do not quite mean it. Quantum field theory assigns the vacuum a ground-state energy, zero-point fluctuations, and a rich structure of virtual particle activity. General relativity curves it, stretches it, and allows it to expand. The vacuum is the most theoretically active thing in physics, and yet its physical nature is never specified.</p>
+      <p>This creates a peculiar situation. We have extraordinarily precise mathematical descriptions of what the vacuum <em>does</em>, but no account of what it <em>is</em>. The equations work. The ontology is absent.</p>
+      <p>The nineteenth century had a candidate answer: the luminiferous ether, a mechanical medium that light waves propagated through. The Michelson-Morley experiment in 1887 appeared to rule it out. Einstein&rsquo;s special relativity replaced it with a structureless spacetime background, and the question of what the vacuum is made of was set aside.</p>
+      <p>SFT revisits this question, but not by reviving the nineteenth-century ether. The old ether was conceived as a rigid solid that supported transverse shear waves. SFT proposes something fundamentally different: a compressible continuum that supports only longitudinal compression dynamics, phase transitions, and the topological structures that arise from them. It has no shear stiffness. It is not a solid. The Michelson-Morley result is not a problem for this medium. It is an expected consequence of it.</p>
+    </div>
+  </div>
+
+  <div class="section section-anchor" id="substrate">
+    <p class="section-label">III &mdash; The Substrate</p>
+    <div class="section-body">
+      <p>The central object in SFT is the substrate: a continuous physical medium that fills all of space. Its state at any point is described by a single number, the local compression &phi;(x,t). When &phi; is low, the substrate is relaxed. When &phi; is high, it is compressed. Everything in physics is a pattern in this compression field.</p>
+      <p>This is a radical simplification. Standard physics has dozens of fundamental fields. SFT has one: &phi;.</p>
+      <p>The substrate has a natural tendency to decompress. This is its only fundamental drive. There are no fundamental forces in SFT, only constraints on this expansion. What we call forces are the patterns that emerge when compression is prevented from relaxing freely.</p>
+      <p>The substrate also has two thermodynamic phases, analogous to the liquid and solid phases of water, but with very different properties.</p>
+      <p><strong>The vacuum phase</strong> is the substrate&rsquo;s normal state &mdash; a continuous range of compression from relaxed to moderately compressed. What astrophysicists call dark matter is the high-compression end of the vacuum phase: regions where the substrate is denser than average, bending light and affecting nearby motion, but not condensed into the baryonic phase. Dark matter, in this framework, is not a particle. It is thick vacuum.</p>
+      <p><strong>The baryonic phase</strong> is what matter is made of. It is topologically distinct from the vacuum phase &mdash; not just more compressed, but structurally different, separated from the vacuum by a sharp phase-transition boundary. Protons, neutrons, and electrons are localized structures in the baryonic phase.</p>
+      <p><strong>Why we cannot detect motion through it.</strong> Any measuring apparatus built from baryonic matter undergoes the same length contraction and time dilation as the phenomenon being measured. The Michelson-Morley null result is the expected outcome when the measurement tool and the measured phenomenon are both governed by the same substrate mechanics. Lorentz invariance is not a postulate in SFT. It is a stability condition of the matter-medium coupling, derived from the requirement that oscillating folds maintain phase coherence during uniform translation.</p>
+    </div>
+  </div>
+
+  <div class="section section-anchor" id="matter">
+    <p class="section-label">IV &mdash; What Matter Actually Is</p>
+    <div class="section-body">
+      <p>In standard physics, an electron is a point particle &mdash; a mathematical idealization with no internal structure. In SFT, an electron is a <em>topological fold</em>: a localized region where the substrate has crossed into the baryonic phase and closed back on itself, forming a self-sustaining compression pattern.</p>
+      <p>This immediately raises a mathematical objection. In three-dimensional field theories, Derrick&rsquo;s Theorem proves that stable, time-independent localized structures cannot exist. The answer is that matter is never static. Particles in SFT are <em>oscillons</em>: dynamic structures that oscillate continuously between the vacuum and baryonic phases of the potential, sustained by the substrate&rsquo;s built-in inertia. Oscillon lifetimes can be effectively infinite on cosmological timescales. Derrick&rsquo;s Theorem applies to static solutions; oscillons are not static.</p>
+      <p>The substrate evolves according to a hyperbolic equation with genuine inertia:</p>
+      <div class="eq-block">
+        $$\tau \frac{\partial^2 \phi}{\partial t^2} + \frac{\partial \phi}{\partial t} = -\Gamma \frac{\delta F[\phi]}{\delta \phi}$$
+      </div>
+      <p>where $F[\phi]$ is the Ginzburg-Landau free energy of the compression field and $\tau$ is the substrate&rsquo;s inertial timescale. The free energy $F[\phi]$ takes a double-well form, admitting two stable minima: the ambient vacuum phase and the compressed baryonic phase. Remove $\tau$ and oscillons cannot exist. The inertial term is not a technical convenience. It is the physical foundation of matter.</p>
+      <p>Charge, in this picture, is the asymmetry of the compression pattern at the boundary between a baryonic fold and the surrounding vacuum. Opposite charges attract because their boundary patterns are complementary &mdash; bringing them together reduces the total interface energy. Like charges repel because their patterns constructively interfere, increasing it.</p>
+    </div>
+  </div>
+
+  <div class="section section-anchor" id="light">
+    <p class="section-label">V &mdash; What Light Actually Is</p>
+    <div class="section-body">
+      <p>Every localized fold in the substrate must satisfy a stability condition at every moment &mdash; a budget between internal compression energy and traversal energy. For a photon (a sub-stable, open fold):</p>
+      <div class="eq-block">
+        $$q_c + \frac{q_t}{\Delta t} = q_{\text{stable}}$$
+      </div>
+      <p>For a massive particle &mdash; a self-stable closed fold &mdash; the traversal term is zero: compression alone satisfies the stability condition. The fold persists at rest.</p>
+      <p>For photons, $q_c$ falls below the threshold. The fold is <em>sub-stable</em>. The deficit must be made up entirely by motion. Maximum traversal speed (what we measure as $c$) is the only speed at which a sub-stable fold can balance its budget.</p>
+      <p>This is the SFT account of why light travels at $c$. Not because $c$ is a speed limit imposed on the universe. Because $c$ is the <em>existence condition</em> for a photon. A photon that slowed down would fail its stability budget and dissolve back into the substrate.</p>
+      <p>Photon frequency emerges from the same picture. When a photon carries more energy than the bare minimum needed to sustain the fold, the excess manifests as perpendicular oscillations of the compression pattern as it propagates. Each additional unit of excess energy produces one additional oscillation cycle per unit time &mdash; a mechanical path to the Planck-Einstein relation $E = hf$, derived from the mechanics of a propagating sub-stable fold rather than postulated.</p>
+      <p>The speed of light is not a universal constant imposed from outside. It is a material property of the substrate &mdash; the speed at which phase-transition pulses propagate through the medium. In regions where the substrate is more compressed, this speed is slightly lower. This is why light bends near massive objects and why clocks run slower in gravitational fields.</p>
+    </div>
+  </div>
+
+  <div class="section section-anchor" id="gravity">
+    <p class="section-label">VI &mdash; Gravity Without Geometry</p>
+    <div class="section-body">
+      <p>General relativity describes gravity as the curvature of spacetime. This is geometrically elegant and empirically precise. But it does not explain <em>why</em> matter curves spacetime, or what spacetime is that it can be curved. SFT offers a mechanical account.</p>
+      <p>The vacuum phase is saturated with sub-threshold compression activity &mdash; the substrate&rsquo;s analog of thermal noise. Baryonic matter is largely opaque to this flux. It absorbs, scatters, and blocks the vacuum modes that pass through it. Along the axis connecting two massive bodies, each body casts a shadow in the vacuum energy flux. The region between them has lower vacuum energy density than the regions on their far sides. The pressure is higher on the outside than on the inside. The bodies are pushed together.</p>
+      <p>This is <em>entropic shadowing</em>: gravity as a pressure asymmetry arising from the opacity of matter to vacuum energy flux. The inverse-square law emerges from the solid-angle geometry of the shadow.</p>
+      <p><strong>The Le Sage distinction.</strong> This concept bears a surface resemblance to Le Sage&rsquo;s eighteenth-century push-gravity theory, which has a well-known fatal flaw: if the medium interacts with matter enough to push it gravitationally, it must also heat it and produce orbital drag. SFT evades both problems from first principles. Drag is not possible in a continuous substance &mdash; drag requires discrete momentum exchange at the molecular level. In a continuous compressible substrate there are no discrete collisions, only pressure gradients. Furthermore, sub-threshold vacuum modes cannot cross the phase-transition boundary into baryonic matter. The activation energy required acts as a hard frequency cutoff: below threshold, modes reflect entirely. There is no heating. This is a direct consequence of the two-phase architecture, not a patch.</p>
+      <p>This two-layer defense generates a prediction that Le Sage theories cannot make: the opacity of baryonic matter to vacuum flux has a hard cutoff at the phase-transition threshold &mdash; a step function rather than a smooth curve. This profile is, in principle, observable in precision Casimir-force measurements at varying energy scales.</p>
+    </div>
+  </div>
+
+  <div class="section section-anchor" id="darkmatter">
+    <p class="section-label">VII &mdash; Dark Matter Without Particles</p>
+    <div class="section-body">
+      <p>Decades of direct detection experiments searching for WIMPs, axions, and sterile neutrinos have found nothing. SFT offers a different account built from the same substrate mechanics that explain gravity.</p>
+      <p>Matter does not merely sit in the substrate. It depletes it. Baryonic structures consume local vacuum modes to maintain their phase coherence. Dense regions of matter are surrounded by substrate that is thinner than the surrounding intergalactic medium. This depletion creates a gradient that modifies orbital dynamics, producing flat rotation curves without invoking new particles.</p>
+      <p>In mode-depleted substrate near the galaxy edge, each quantum of traversal spans more coordinate distance. The star is not moving faster in substrate terms. The substrate is thinner. External observers measure higher velocity because they count coordinate distance, not substrate quanta.</p>
+      <p>Thick vacuum (the high-compression end of the vacuum phase) contributes to gravitational lensing because elevated compression slows light, bending its path. But thick vacuum is only partially opaque to vacuum energy flux, so it contributes less to dynamical gravity than its lensing signal suggests. This two-mechanism structure offers a natural qualitative account of the offset between lensing mass and dynamical mass observed in the Bullet Cluster &mdash; no new particle required.</p>
+      <p>The most direct near-term test: spectral analysis of galactic rotation curves from the SPARC database. Non-monotonic depletion profiles from galactic mergers should produce specific harmonic signatures in the power spectrum of $v(r)$. If no such structure appears, the mode scarcity formalism fails.</p>
+    </div>
+  </div>
+
+  <div class="section section-anchor" id="hydrogen">
+    <p class="section-label">VIII &mdash; Why Atoms Are Stable: The Hydrogen Spectrum</p>
+    <div class="section-body">
+      <p>SFT reproduces the hydrogen spectrum from four mechanical principles, without invoking quantum-mechanical postulates.</p>
+      <p><strong>The compression field around the proton</strong> satisfies Laplace&rsquo;s equation outside the proton&rsquo;s core. Its unique solution is a $1/r$ potential &mdash; not borrowed from electrostatics, but the inevitable mathematical consequence of a point compression source in an isotropic 3D continuum.</p>
+      <p><strong>The electron as a wave packet.</strong> In the linear regime, the substrate&rsquo;s wave equation takes the Klein-Gordon form, and from this the de Broglie relation follows: the fold&rsquo;s effective wavelength is inversely proportional to its momentum. De Broglie proposed this in 1924 as an empirical hypothesis. In SFT, it emerges from wave-packet propagation in a Lorentz-consistent substrate.</p>
+      <p><strong>Force balance</strong> sets the orbital condition. For circular orbital motion, setting the required centripetal force equal to the compression force from the proton&rsquo;s $1/r$ field:</p>
+      <div class="eq-block">
+        $$\frac{mv^2}{r} = \frac{k}{r^2} \implies v^2 = \frac{k}{mr}$$
+      </div>
+      <p><strong>Phase coherence as the quantization condition.</strong> For a closed orbital path to be stable, the electron fold must complete an integer number of compression cycles per revolution: $2\pi r = n\lambda$. Substituting the de Broglie relation $\lambda = h/mv$ gives the allowed radii $r_n = a_0 n^2$, and the energy follows immediately:</p>
+      <div class="eq-block">
+        $$E_n = -\frac{13.6\,\text{eV}}{n^2} \qquad (n = 1, 2, 3, \ldots)$$
+      </div>
+      <p>The $1/n^2$ spectral pattern emerges from four mechanical principles. The absolute energy scale (13.6 eV) requires identifying the substrate&rsquo;s fundamental action quantum with Planck&rsquo;s constant $\hbar$ &mdash; the framework&rsquo;s primary open problem.</p>
+    </div>
+  </div>
+
+  <div class="section section-anchor" id="lorentz">
+    <p class="section-label">IX &mdash; Lorentz Invariance, Derived</p>
+    <div class="section-body">
+      <p>In SFT, matter consists of oscillons &mdash; phase-coherent topological structures. For an oscillon to maintain structural integrity while moving uniformly through the substrate, its internal compression modes must remain phase-coherent with the substrate&rsquo;s wave equation. The requirement that the oscillon does not destructively interfere with itself during translation imposes length contraction and time dilation as mechanical necessities &mdash; consequences of the stability condition for moving matter, not postulates.</p>
+      <p>A physically real substrate rest frame exists. But any measuring apparatus built from oscillons undergoes the same contraction and dilation as the phenomenon being measured. The Michelson-Morley null result is the expected outcome. Lorentz invariance is a stability condition of the matter-medium coupling.</p>
+    </div>
+  </div>
+
+  <div class="section section-anchor" id="status">
+    <p class="section-label">X &mdash; Status of Results</p>
+    <div class="section-body">
+      <p>It is useful to distinguish what has been derived, what has been reproduced via mechanical reinterpretation, and what remains a proposed mechanism requiring further development.</p>
+      <table class="overview-table">
+        <thead>
+          <tr><th>Category</th><th>Result</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="status-badge badge-derived">Derived</span></td>
+            <td>Coulomb $1/r$ potential; de Broglie relation; Lorentz invariance; inverse-square gravity</td>
+          </tr>
+          <tr>
+            <td><span class="status-badge badge-reproduced">Reproduced</span></td>
+            <td>Hydrogen $1/n^2$ spectrum; photon energy-frequency relation; Shapiro delay; gravitational lensing deflection angle</td>
+          </tr>
+          <tr>
+            <td><span class="status-badge badge-proposed">Proposed</span></td>
+            <td>Entropic shadowing (gravity); thick vacuum (dark matter); mode scarcity field (rotation curves); shadowing equilibrium</td>
+          </tr>
+          <tr>
+            <td><span class="status-badge badge-open">Open &mdash; path known</span></td>
+            <td>Planck&rsquo;s constant from substrate constitutive properties; orbital angular momentum ($\ell$ quantum number); fine structure</td>
+          </tr>
+          <tr>
+            <td><span class="status-badge badge-open">Open &mdash; early stage</span></td>
+            <td>Proton internal structure (quark ontology); Lamb shift; cosmological structure</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section section-anchor" id="implications">
+    <p class="section-label">XI &mdash; What This Changes</p>
+    <div class="section-body">
+      <p>SFT is not a minor modification to existing physics. It is a reconstruction of the ontological foundation. The practical implications are significant.</p>
+      <p><strong>Dark matter</strong> requires no new particles. It is thick vacuum and mode-depleted substrate. The search for WIMPs, axions, and sterile neutrinos is, in this framework, a search for something that does not exist in the form being sought.</p>
+      <p><strong>Dark energy</strong> points toward a different mechanism currently under development: shadowing equilibrium. Where a shadow blocks kinetic energy flux, the substrate locally compresses, capturing potential energy. The system finds a dynamic local equilibrium rather than monotonically relaxing. The cosmological implications are an active area of investigation.</p>
+      <p><strong>Quantization</strong> is not a mysterious feature of nature requiring a separate theoretical framework. It is the structural consequence of wave packets in a resonant medium that must close on themselves without self-interference &mdash; the same principle that operates in superfluid helium and optical resonators.</p>
+      <p><strong>The speed of light</strong> is not a universal constant imposed from outside. It is a material property of the substrate that varies with local compression state, producing gravitational lensing, time dilation, and the Shapiro delay as refractive effects.</p>
+      <p><strong>Gravity</strong> is not spacetime curvature. It is a pressure asymmetry. Bodies are pushed together by the shadow they cast in the vacuum energy flux.</p>
+    </div>
+  </div>
+
+  <div class="section section-anchor" id="falsifiability">
+    <p class="section-label">XII &mdash; Open Problems and Falsifiability</p>
+    <div class="section-body">
+      <p>A framework that cannot be falsified is not physics. SFT makes specific predictions that differ from standard physics in regimes where the substrate&rsquo;s compression state departs significantly from the vacuum minimum.</p>
+      <p><strong>Planck&rsquo;s constant.</strong> SFT predicts that $\hbar$ is derivable from the substrate&rsquo;s bulk modulus and density. If no such derivation is possible, the framework&rsquo;s claim to be a complete mechanical theory fails. This is the primary near-term theoretical test.</p>
+      <p><strong>Beyond the Bohr model.</strong> If SFT cannot extend to results the Bohr model cannot produce &mdash; fine structure, the Lamb shift, the anomalous magnetic moment &mdash; it is not a replacement for quantum mechanics but a restatement of a 1913 result. The extension is in progress; failure would be significant.</p>
+      <p><strong>Quantitative gravity.</strong> The entropic shadowing mechanism must produce a quantitative opacity model that matches the measured gravitational constant $G$. If the mechanism cannot close quantitatively, the gravity proposal fails.</p>
+      <p><strong>Phase-threshold opacity.</strong> SFT predicts that matter&rsquo;s opacity to vacuum flux has a hard cutoff at the phase-transition threshold &mdash; a step function rather than a smooth curve. If precision Casimir-force measurements reveal smooth, frequency-independent opacity, the two-phase architecture is falsified.</p>
+      <p><strong>High-compression deviations.</strong> Near neutron stars and black holes, SFT predicts deviations from general relativity observable in gravitational wave waveforms and pulsar timing. If no such deviations exist at the predicted scale, the compression-state picture of gravity is falsified.</p>
+      <p><strong>Rotation curve spectral structure.</strong> If dark matter is mode-depleted substrate, galactic rotation curves should carry spectral signatures of the depletion field. If SPARC data shows no such structure, the mode scarcity formalism fails.</p>
+    </div>
+  </div>
+
+  <div class="section section-anchor" id="papers">
+    <p class="section-label">XIII &mdash; Published Work</p>
+    <div class="section-body">
+      <p>The following papers develop specific aspects of the SFT framework in detail. Each is available open-access via Zenodo.</p>
+    </div>
+    <ul class="paper-list">
+      <li class="paper-item">
+        <a class="paper-title" href="https://doi.org/10.5281/zenodo.18736625" target="_blank">Dark Matter as Entropic Shadowing</a>
+        <span class="paper-meta">Jensen &nbsp;&#183;&nbsp; MMXXVI &nbsp;&#183;&nbsp; doi:10.5281/zenodo.18736625</span>
+      </li>
+      <li class="paper-item">
+        <a class="paper-title" href="https://doi.org/10.5281/zenodo.18736403" target="_blank">Gravitational Lensing as Anisotropic Refraction</a>
+        <span class="paper-meta">Jensen &nbsp;&#183;&nbsp; MMXXVI &nbsp;&#183;&nbsp; doi:10.5281/zenodo.18736403</span>
+      </li>
+      <li class="paper-item">
+        <a class="paper-title" href="https://doi.org/10.5281/zenodo.18736487" target="_blank">Dynamic Enforcement of Lorentz Invariance</a>
+        <span class="paper-meta">Jensen &nbsp;&#183;&nbsp; MMXXVI &nbsp;&#183;&nbsp; doi:10.5281/zenodo.18736487</span>
+      </li>
+      <li class="paper-item">
+        <a class="paper-title" href="https://doi.org/10.5281/zenodo.18820856" target="_blank">The Shapiro Delay from Substrate Compression</a>
+        <span class="paper-meta">Jensen &nbsp;&#183;&nbsp; MMXXVI &nbsp;&#183;&nbsp; doi:10.5281/zenodo.18820856</span>
+      </li>
+      <li class="paper-item">
+        <a class="paper-title" href="https://doi.org/10.5281/zenodo.18907923" target="_blank">Photon Ontology and the Stability Budget</a>
+        <span class="paper-meta">Jensen &nbsp;&#183;&nbsp; MMXXVI &nbsp;&#183;&nbsp; doi:10.5281/zenodo.18907923</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <div class="section-body">
+      <p style="font-style: italic; font-size: 0.95rem; color: var(--text-muted, #8a7a6a);">Many results presented here reproduce known physics through a different mechanical ontology. This is intentional: agreement with established results is a constraint, not a claim of novelty. The test of SFT lies in where it diverges. The framework makes no claim to have replaced quantum mechanics or general relativity. It claims to offer a mechanical ontology from which the results of both frameworks emerge, and to have already derived several of those results from first principles. The remaining derivations are the research program. The work continues.</p>
+      <p style="font-size: 0.85rem; color: var(--text-muted, #8a7a6a); margin-top: 1.5rem;">Troy Jensen is an independent researcher and the founder of principia.academy. Correspondence: troy.s.jensen@gmail.com<br>&copy; 2026 Troy Jensen. Published under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" style="color: var(--gold, #B8922A);">CC BY 4.0</a>.</p>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <p class="cta-latin">Principia Substrata</p>
+    <p class="cta-text">The technical derivations, constitutive equations, and published papers are in the Substrati division.</p>
+    <a class="cta-link" href="/substrati/">Substrati &rarr;</a>
+  </div>
+
+</main>
+
+
+<footer>
+  <p class="footer-quote">&ldquo;If I have seen further, it is by standing on the shoulders of giants.&rdquo;</p>
+  <div class="footer-rule"></div>
+  <p class="footer-domain">Principia &nbsp;&#183;&nbsp; principia.academy</p>
+  <p class="footer-copy">&copy; MMXXVI &nbsp;Principia &nbsp;&#183;&nbsp; <a href="mailto:contact@principia.academy" style="color:inherit;text-decoration:none;">contact@principia.academy</a> &nbsp;&#183;&nbsp; Omnia Jure Reservantur</p>
+</footer>
+
+
+
+
+</body>
+</html>

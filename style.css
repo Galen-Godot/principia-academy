@@ -768,3 +768,124 @@ footer {
 .charter-content li + li {
   margin-top: 0.5rem;
 }
+
+
+/* ══════════════════════════════════════════════════
+   CONVERSION / PARTNER LAYER
+   ══════════════════════════════════════════════════ */
+.home-intro {
+  max-width: 760px;
+  text-align: center;
+  color: var(--brown-mid);
+  font-size: 1.08rem;
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+}
+
+.home-lead {
+  font-size: 1.28rem;
+  color: var(--brown);
+  margin-bottom: 0.9rem;
+}
+
+.home-cta-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.primary-cta,
+.secondary-cta,
+.cta-link {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.primary-cta,
+.secondary-cta {
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  padding: 0.95rem 1.3rem;
+  border: 1px solid var(--gold);
+}
+
+.primary-cta {
+  background: var(--gold);
+  color: var(--parchment);
+}
+
+.secondary-cta {
+  color: var(--brown);
+  background: transparent;
+}
+
+.primary-cta:hover,
+.secondary-cta:hover,
+.cta-link:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+.home-proof-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 0 0 2.25rem;
+}
+
+.proof-card {
+  border: 1px solid rgba(184, 146, 42, 0.28);
+  padding: 1rem 1rem 1.1rem;
+  background: rgba(255,255,255,0.25);
+  min-height: 150px;
+}
+
+.proof-card p:last-child {
+  line-height: 1.55;
+  color: var(--brown-mid);
+}
+
+@media (max-width: 720px) {
+  .home-main {
+    padding-top: 2.75rem;
+  }
+
+  .home-intro {
+    font-size: 1rem;
+  }
+
+  .home-lead {
+    font-size: 1.14rem;
+  }
+
+  .home-nav {
+    gap: 0.5rem 1rem;
+  }
+
+  .home-nav .sep,
+  .page-nav .sep {
+    display: none;
+  }
+}
+
+
+.outputs-list {
+  list-style: none;
+  padding-left: 0;
+}
+.outputs-list li {
+  margin: 0.6rem 0;
+}
+.outputs-list a {
+  color: #d4b15a;
+  text-decoration: none;
+}
+.outputs-list a:hover {
+  text-decoration: underline;
+}

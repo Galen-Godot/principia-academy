@@ -4,11 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Principia</title>
-  <meta name="description" content="The Logic Engine for Scientific Discovery. Where Newton laid foundations, we build frameworks for the next era of discovery." />
+  <meta name="description" content="Principia is a human-in-the-loop AI research system for deep technical work, using theoretical physics as a benchmark domain for auditable reasoning, numerical modeling, and manuscript-grade outputs." />
+  <meta property="og:title" content="Principia" />
+  <meta property="og:description" content="Principia is a human-in-the-loop AI research system for deep technical work, using theoretical physics as a benchmark domain for auditable reasoning, numerical modeling, and manuscript-grade outputs." />
+  <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
+  <link rel="canonical" href="https://principia.academy/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Principia",
+    "url": "https://principia.academy",
+    "description": "Human-in-the-loop AI research for deep technical work.",
+    "sameAs": [
+      "https://github.com/Galen-Godot"
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -16,8 +32,6 @@
 
 
 <main class="home-main">
-
-  <!-- Top ornament -->
   <div class="ornament">
     <div class="ornament-line"></div>
     <span class="ornament-diamond">&#9670;</span>
@@ -25,14 +39,20 @@
   </div>
 
   <p class="anno">Anno Domini &nbsp;MMXXVI</p>
-
   <h1 class="wordmark">Principia</h1>
-
-  <p class="tagline">The Logic Engine for Scientific Discovery</p>
-
+  <p class="tagline">Human-in-the-loop AI research for deep technical work</p>
   <p class="newton-latin">Hypotheses &nbsp;Non &nbsp;Fingo</p>
 
-  <!-- Gauntlet diagram -->
+  <section class="home-intro">
+    <p class="home-lead">Principia is an agentic research system built to pressure-test difficult ideas, numerical workflows, and manuscript-grade claims.</p>
+    <p>We use theoretical physics as a benchmark domain because it forces rigor across reasoning, equations, code, citations, and writing. The goal is not to market speculative theory as the product. The goal is to build and demonstrate a serious AI-assisted research workflow under hard conditions.</p>
+  </section>
+
+  <div class="home-cta-row">
+    <a class="primary-cta" href="/partners/">For Partners</a>
+    <a class="secondary-cta" href="/machina/">See the Engine</a>
+  </div>
+
   <div class="diagram-wrap">
     <svg viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" aria-label="Principia Engine Diagram">
       <defs>
@@ -41,63 +61,59 @@
           <stop offset="100%" stop-color="#EDE6D6" stop-opacity="0"/>
         </radialGradient>
       </defs>
-
-      <!-- Outer ring -->
       <circle cx="140" cy="140" r="118" fill="none" stroke="#B8922A" stroke-width="0.75" opacity="0.4"/>
       <circle cx="140" cy="140" r="108" fill="none" stroke="#B8922A" stroke-width="0.35" opacity="0.25"/>
-
-      <!-- Inner ring -->
       <circle cx="140" cy="140" r="32" fill="none" stroke="#B8922A" stroke-width="0.75" opacity="0.5"/>
-
-      <!-- Center node -->
       <circle cx="140" cy="140" r="5" fill="#B8922A" opacity="0.9"/>
-
-      <!-- Spokes -->
       <line x1="140" y1="140" x2="140" y2="50" stroke="#B8922A" stroke-width="0.6" opacity="0.3"/>
       <line x1="140" y1="140" x2="218" y2="95" stroke="#B8922A" stroke-width="0.6" opacity="0.3"/>
       <line x1="140" y1="140" x2="218" y2="185" stroke="#B8922A" stroke-width="0.6" opacity="0.3"/>
       <line x1="140" y1="140" x2="140" y2="230" stroke="#B8922A" stroke-width="0.6" opacity="0.3"/>
       <line x1="140" y1="140" x2="62" y2="185" stroke="#B8922A" stroke-width="0.6" opacity="0.3"/>
       <line x1="140" y1="140" x2="62" y2="95" stroke="#B8922A" stroke-width="0.6" opacity="0.3"/>
-
-      <!-- Outer hexagon -->
-      <polygon points="140,50 218,95 218,185 140,230 62,185 62,95"
-               fill="none" stroke="#B8922A" stroke-width="0.5" opacity="0.2"/>
-
-      <!-- Cross connections -->
+      <polygon points="140,50 218,95 218,185 140,230 62,185 62,95" fill="none" stroke="#B8922A" stroke-width="0.5" opacity="0.2"/>
       <line x1="140" y1="50" x2="218" y2="185" stroke="#B8922A" stroke-width="0.4" opacity="0.12"/>
       <line x1="218" y1="185" x2="62" y2="95" stroke="#B8922A" stroke-width="0.4" opacity="0.12"/>
       <line x1="62" y1="95" x2="140" y2="230" stroke="#B8922A" stroke-width="0.4" opacity="0.12"/>
       <line x1="140" y1="230" x2="218" y2="95" stroke="#B8922A" stroke-width="0.4" opacity="0.12"/>
       <line x1="218" y1="95" x2="62" y2="185" stroke="#B8922A" stroke-width="0.4" opacity="0.12"/>
       <line x1="62" y1="185" x2="140" y2="50" stroke="#B8922A" stroke-width="0.4" opacity="0.12"/>
-
-      <!-- Outer node circles -->
       <circle cx="140" cy="50" r="5" fill="none" stroke="#B8922A" stroke-width="1.2" opacity="0.8"/>
       <circle cx="218" cy="95" r="5" fill="none" stroke="#B8922A" stroke-width="1.2" opacity="0.8"/>
       <circle cx="218" cy="185" r="5" fill="none" stroke="#B8922A" stroke-width="1.2" opacity="0.8"/>
       <circle cx="140" cy="230" r="5" fill="none" stroke="#B8922A" stroke-width="1.2" opacity="0.8"/>
       <circle cx="62" cy="185" r="5" fill="none" stroke="#B8922A" stroke-width="1.2" opacity="0.8"/>
       <circle cx="62" cy="95" r="5" fill="none" stroke="#B8922A" stroke-width="1.2" opacity="0.8"/>
-
-      <!-- Node labels -->
       <text x="140" y="36" text-anchor="middle" font-family="Cinzel, serif" font-size="6.5" fill="#B8922A" letter-spacing="1.5" opacity="0.85">ADVOCATVS</text>
       <text x="236" y="93" text-anchor="start" font-family="Cinzel, serif" font-size="6.5" fill="#B8922A" letter-spacing="1.5" opacity="0.85">ENTROPY</text>
       <text x="224" y="196" text-anchor="start" font-family="Cinzel, serif" font-size="6.5" fill="#B8922A" letter-spacing="1.5" opacity="0.85">VALIDATIO</text>
       <text x="140" y="248" text-anchor="middle" font-family="Cinzel, serif" font-size="6.5" fill="#B8922A" letter-spacing="1.5" opacity="0.85">SYNTHESIS</text>
       <text x="56" y="196" text-anchor="end" font-family="Cinzel, serif" font-size="6.5" fill="#B8922A" letter-spacing="1.5" opacity="0.85">ACERVVS</text>
       <text x="46" y="93" text-anchor="end" font-family="Cinzel, serif" font-size="6.5" fill="#B8922A" letter-spacing="1.5" opacity="0.85">CONFVTATIO</text>
-
-      <!-- Center label -->
       <text x="140" y="136" text-anchor="middle" font-family="Cinzel, serif" font-size="5.5" fill="#B8922A" letter-spacing="2" opacity="0.6">MACHINA</text>
       <text x="140" y="146" text-anchor="middle" font-family="Cinzel, serif" font-size="5.5" fill="#B8922A" letter-spacing="2" opacity="0.6">LOGICA</text>
     </svg>
   </div>
 
-  <!-- Navigation -->
-  <div class="nav-rule"></div>
+  <section class="home-proof-grid">
+    <div class="proof-card">
+      <p class="section-label">What It Does</p>
+      <p>Structured adversarial review, literature discipline, numerical workflow hardening, and manuscript-oriented synthesis for difficult technical work.</p>
+    </div>
+    <div class="proof-card">
+      <p class="section-label">Benchmark Domain</p>
+      <p>Theoretical physics is used as the benchmark because it exposes weaknesses quickly: loose claims, brittle numerics, citation drift, and reasoning failure.</p>
+    </div>
+    <div class="proof-card">
+      <p class="section-label">Current Priority</p>
+      <p>Build a credible research-infrastructure surface for partners, pilot support, and technically serious collaboration.</p>
+    </div>
+  </section>
 
+  <div class="nav-rule"></div>
   <nav class="home-nav">
+    <a href="/partners/">Partners</a>
+    <span class="sep">&#9670;</span>
     <a href="/substrati/">Substrati</a>
     <span class="sep">&#9670;</span>
     <a href="/machina/">Machina</a>
@@ -107,8 +123,9 @@
     <a href="/veritas/">Veritas</a>
     <span class="sep">&#9670;</span>
     <a href="/forum/">Forum</a>
+    <span class="sep">&#9670;</span>
+    <a href="/consul/">Consul</a>
   </nav>
-
 </main>
 
 
@@ -116,7 +133,7 @@
   <p class="footer-quote">&ldquo;If I have seen further, it is by standing on the shoulders of giants.&rdquo;</p>
   <div class="footer-rule"></div>
   <p class="footer-domain">Principia &nbsp;&#183;&nbsp; principia.academy</p>
-  <p class="footer-copy">&copy; MMXXVI &nbsp;Principia Academy &nbsp;&#183;&nbsp; Omnia Jure Reservantur</p>
+  <p class="footer-copy">&copy; MMXXVI &nbsp;Principia &nbsp;&#183;&nbsp; <a href="mailto:contact@principia.academy" style="color:inherit;text-decoration:none;">contact@principia.academy</a> &nbsp;&#183;&nbsp; Omnia Jure Reservantur</p>
 </footer>
 
 
